@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  apache_container:
+    image: httpd:latest
+    ports:
+      - "80:80"
+    volumes:
+      - /home/jeevan/project/html:/usr/local/apache2/htdocs
+    networks:
+      - apache_network
+
+networks:
+  apache_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.168.10.0/30

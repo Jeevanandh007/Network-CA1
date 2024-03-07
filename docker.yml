@@ -1,0 +1,19 @@
+---
+- name: Deploy a docker container using ansible with apache service to run index html file 
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Ensure docker compose is installed
+      apt:
+        name: docker-compose
+        state: present
+    - name: Copy docker compose file
+      copy: 
+        src: docker-compose.yml
+        dest: /home/jeevan/project/docker-compose.yml
+    - name: Start docker compose
+      command: docker-compose up -d
+      args:
+        chdir: /home/jeevan/project
+
+
