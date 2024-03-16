@@ -36,7 +36,7 @@
        
     - name: Copy HTML file to the host
       copy:
-        src: /home/jeevan/project/index.html
+        src: /home/jeevan/project/Network-CA1/index.html
         dest: /tmp/network
     
     - name: Retrieving IP for verification
@@ -45,7 +45,7 @@
     
     - name: Inventory update
       blockinfile:
-        path: /home/jeevan/project/inventory.txt
+        path: /home/jeevan/project/Network-CA1/inventory.txt
         block: |
                 #[target]
                 #{{ ip.stdout }} ansible_user=root ansible_ssh_pass=root ansible_connection=ssh
