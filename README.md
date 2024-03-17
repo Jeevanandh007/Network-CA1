@@ -1,3 +1,2 @@
-# Network-CA1
-Automated Container deployment and Administration
-The objective of this assessment is to evaluate your understanding and practical application of deploying Docker containers using Ansible.
+Objective
+The objective of this project is to develop an Ansible playbook capable of automatically connecting to a target machine from a control machine and deploying required applications while running a static web page. This report provides details on utilizing the Windows Subsystem for Linux (WSL) as the control machine and Oracle VirtualBox with Ubuntu as the target system to deploy the Ansible playbook. The playbook will execute tasks to create a Docker container with an Apache server running a static webpage from a specified subnet.
