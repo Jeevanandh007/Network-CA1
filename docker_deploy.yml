@@ -1,6 +1,9 @@
 ---
 - name: Deploy Docker container with HTML Page using Apache
-  hosts: localhost
+  hosts: target
+  become: true
+  become_method: sudo
+  become_user: root
   gather_facts: no
   tasks:
 
@@ -14,12 +17,17 @@
       pip:
         name: docker
 
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+      become: true  
+
     - name: Create Docker network with docker_network ansible module with required subnet 
       docker_network:
         name: apache_network
-        driver: bridge
+        #driver: bridge
         ipam_config:
-
           - subnet: 172.168.10.0/30
             #state: present
 
@@ -43,12 +51,12 @@
       command: /usr/bin/docker inspect --format="{{'{{'}}range .NetworkSettings.Networks{{'}}'}}{{'{{'}}.IPAddress{{'}}'}}{{'{{'}}end{{'}}'}}" network_container
       register: ip
     
-    - name: Inventory update
-      blockinfile:
-        path: /home/jeevan/project/Network-CA1/inventory.txt
-        block: |
+    - #name: Inventory update
+      #blockinfile:
+        #path: /home/jeevan/project/Network-CA1/inventory.txt
+        #block: |
                 #[target]
                 #{{ ip.stdout }} ansible_user=root ansible_ssh_pass=root ansible_connection=ssh
 
-    - debug:
-        msg: "{{ ip.stdout }}"
+    - #debug:
+        #msg: "{{ ip.stdout }}"

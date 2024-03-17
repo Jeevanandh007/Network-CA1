@@ -1,4 +1,3 @@
-# BEGIN ANSIBLE MANAGED BLOCK
-#[target]
-#172.168.10.2 ansible_user=root ansible_ssh_pass=root ansible_connection=ssh
-# END ANSIBLE MANAGED BLOCK
+[target]
+192.168.0.158 ansible_user=targetvm ansible_ssh_pass=changeme ansible_connection=ssh
+
