@@ -24,31 +24,35 @@ This Git repo contains an Ansible playbook and necessary files for deploying an 
 # Installation Steps
 
 1. **WSL installation in control machine:**
-    -In windows command prompt as admin
-    -Run `wsl --install` command and restart your machine.
+    - In windows command prompt as admin
+    - Run `wsl --install` command and restart your machine.
     - Install Ubuntu 22.04 using `wsl --install -d Ubuntu-22.04` command.
 
 2. **Ansible installation on control machine**
-    -In Visual studio code or in ubuntu terminal.
-    -Run the following commands:
-    `sudo apt update`
+    - In Visual studio code or in ubuntu terminal.
+    - Run the following commands:
+   ```
+    ` sudo apt update`
     `sudo apt install software-properties-common`
     ` sudo add-apt-repository --yes --update ppa:ansible/ansible`
      `sudo apt install ansible command`.
+   ```
 
 3.  **OpensSSH installation on control mcahine**
     -Run the following commands:
+    ```
     `sudo apt install openssh-client`
     `sudo apt install openssh-server`
+    ```
 
-4.  **Target machine set up (Ubuntu 22.04)**
-    -Instal OpenSSh in target machine.
-    -Change network adapter to Bridged Adapter.
-    -Fetch IP address of the target machine using `ifconfig` command.
+5.  **Target machine set up (Ubuntu 22.04)**
+    - Instal OpenSSh in target machine.
+    - Change network adapter to Bridged Adapter.
+    - Fetch IP address of the target machine using `ifconfig` command.
 
-5. **Verify connection**
-    -Ping IP of target machine from control machine
-    -Check connectivity using `sudo ssh user@ip` where user is user name of target machine .
+6. **Verify connection**
+    - Ping IP of target machine from control machine
+    - Check connectivity using `sudo ssh user@ip` where user is user name of target machine .
 # Ansible Playbook
 - Ansible playbook YML file (`deploy_docker.yml`) is included in this repository.
 - Tasks defined in playbook.
@@ -76,7 +80,7 @@ This Git repo contains an Ansible playbook and necessary files for deploying an 
 
  - Command `ansible-playbook deploy_docker.yml` will execute the playbook.
 
-3. ** Access Apache Server**
+3. **Access Apache Server**
  - After complete excecution index.html can be accessed from localhost and IP 172.168.10.2 from host.
 
  - Also it will be available from public IP of target machine.
