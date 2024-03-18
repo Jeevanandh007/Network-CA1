@@ -1,19 +1,19 @@
-##Ansible playbook deployement for installing docker container to get static webpage in specified subnet.
+# Ansible playbook deployement for installing docker container to get static webpage in specified subnet.
 
 This Git repo contains an Ansible playbook and necessary files for deploying an Apache HTTP server using Docker containers.
 
-#Infrastructure Setup
+# Infrastructure Setup
 
-#Control Machine
+# Control Machine
 
 - **Operating System:** Windows Subsystem for Linux (WSL) running Ubuntu 22.04 kernel.
 - **Tools:** Visual Studio Code with WSL extension.
 
-#Target Machine
+# Target Machine
 
 - **Operating Sydtem:** Ubuntu 22.04in Oracle VirtualBox
 
-#Prerequisites
+# Prerequisites
 
 - Ensure in control machine WSL installed and configured.
 - Install Oracle VirtualBox on your Windows machine.
@@ -21,7 +21,7 @@ This Git repo contains an Ansible playbook and necessary files for deploying an 
 - Configure target machine.
 - Install openSSH in both target and control machine.
 
-#Installation Steps
+# Installation Steps
 
 1. **WSL installation in control machine:**
     -In windows command prompt as admin
@@ -60,12 +60,12 @@ This Git repo contains an Ansible playbook and necessary files for deploying an 
   - Pull the latest Apache image, expose port 80, and connect volume from the control machine.
   - Copy HTML file from control machine to target machine.
 
-#Deployment
+# Deployment
 
 1. **Git Repo Clone**
  - Clone this repo to your control machine using `git clone https://github.com/Jeevanandh007/Network-CA1.git` command.
  
- #Files
+ # Files
 
  - `deploy_docker.yml` Ansible playbook YAML file.
  - `inventory.txt` Target IP configuration with required permissions.
